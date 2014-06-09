@@ -20,6 +20,6 @@ S="${WORKDIR}/${PN}"
 
 src_install() {
 	mkdir -p "${D}/opt/heroku-client"
-	cp -R "${S}/" "${D}/opt/heroku-client" || die "Install failed!"
+	cp -R "${S}" "${D}/opt/" || die "Install failed!"
 	dosym /opt/heroku-client/bin/heroku /usr/bin/heroku
 }
