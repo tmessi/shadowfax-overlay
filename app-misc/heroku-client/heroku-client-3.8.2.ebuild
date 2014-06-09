@@ -1,0 +1,22 @@
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+EAPI=5
+
+DESCRIPTION="Heroku client."
+HOMEPAGE="https://github.com/heroku/heroku"
+SRC_URI="http://assets.heroku.com/heroku-client/heroku-client.tgz"
+
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+IUSE=""
+
+DEPEND=""
+RDEPEND="${DEPEND}"
+
+src_install() {
+	cp -R "${S}/*" "${D}/opt/heroku-client" || die "Install failed!"
+	dosym /usr/bin/heroku /opt/heroku-client/bin/heroku
+}
