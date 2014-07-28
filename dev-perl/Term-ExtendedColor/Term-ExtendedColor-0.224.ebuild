@@ -2,16 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=2
 
-inherit git-2 perl-module
+MODULE_AUTHOR=WOLDRICH
+MODULE_VERSION=0.224
+inherit perl-module
 
-EGIT_REPO_URI="git://github.com/trapd00r/Term-ExtendedColor.git"
-EGIT_COMMIT="v${PV}-cpan"
-
-DESCRIPTION="perl module"
+DESCRIPTION="Color screen output using 256 colors"
 HOMEPAGE="https://github.com/trapd00r/Term-ExtendedColor"
-SRC_URI=""
 
 LICENSE="GPL"
 SLOT="0"
