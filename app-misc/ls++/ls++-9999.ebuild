@@ -27,4 +27,5 @@ src_install() {
 	emake
 	emake test
 	emake DESTDIR="${D}" install
+	dodoc "ls++.conf"
 }
