@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit git-2
+inherit git-2 perl-app
 
 DESCRIPTION="Colorized ls on steroids"
 HOMEPAGE="https://github.com/trapd00r/ls--"
@@ -18,14 +18,7 @@ IUSE=""
 DEPEND="dev-perl/Term-ExtendedColor"
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	cd ${WORKDIR}/${P}
-	/usr/bin/perl Makefile.PL
-}
-
 src_install() {
-	emake
-	emake test
 	emake DESTDIR="${D}" install
 	dodoc "ls++.conf"
 }
