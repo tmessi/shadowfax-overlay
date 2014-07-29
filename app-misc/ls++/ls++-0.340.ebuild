@@ -21,5 +21,7 @@ RDEPEND="${DEPEND}"
 
 src_install() {
 	emake DESTDIR="${D}" install
-	dodoc "ls++.conf"
+	insinto /etc
+	doins ls++.conf
+	dodoc ls++.conf
 }
