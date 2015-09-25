@@ -22,4 +22,4 @@ RDEPEND="${DEPEND}"
 
 FONT_S="${S}/build"
 FONT_SUFFIX="ttf"
-FONT_CONF=( "${S}/config/10-symbols.conf" )
+FONT_CONF=( "${FILESDIR}/10-symbols.conf" )
