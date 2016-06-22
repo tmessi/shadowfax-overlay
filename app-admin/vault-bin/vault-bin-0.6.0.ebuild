@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit unpacker
+inherit unpacker systemd
 
 DDESCRIPTION="A tool for managing secrets"
 HOMEPAGE="https://www.vaultproject.io/"
