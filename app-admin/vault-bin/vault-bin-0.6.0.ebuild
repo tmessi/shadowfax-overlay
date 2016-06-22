@@ -27,7 +27,7 @@ src_unpack() {
 
 src_install() {
 	dobin vault
-	newinitd "${FILESDIR}/vault.initd" "${PN}"
-	newconfd "${FILESDIR}/vault.confd" "${PN}"
+	newinitd "${FILESDIR}/vault.initd" "vault"
+	newconfd "${FILESDIR}/vault.confd" "vault"
 	systemd_dounit "${FILESDIR}/vault.service"
 }
