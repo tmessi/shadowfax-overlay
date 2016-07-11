@@ -49,5 +49,4 @@ src_unpack() {
 src_install() {
 	cp -R "${S}/usr" "${D}/" || die "Install failed!"
 	cp -R "${S}/opt" "${D}/" || die "Install failed!"
-	dosym "${D}/opt/HipChat4/bin/HipChat4" "${D}/usr/bin/hipchat"
 }
