@@ -9,8 +9,8 @@ inherit unpacker
 DDESCRIPTION="A tool for building and distributing virtual machines using VirtualBox"
 HOMEPAGE="http://vagrantup.com/"
 SRC_URI="
-	x86? ( https://dl.bintray.com/mitchellh/vagrant/vagrant_${PV}_i686.deb )
-	amd64? ( https://dl.bintray.com/mitchellh/vagrant/vagrant_${PV}_x86_64.deb )"
+	x86? ( https://releases.hashicorp.com/vagrant/${PV}/vagrant_${PV}_i686.deb )
+	amd64? ( https://releases.hashicorp.com/vagrant/${PV}/vagrant_${PV}_x86_64.deb )"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
