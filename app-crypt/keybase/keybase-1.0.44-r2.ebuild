@@ -70,7 +70,8 @@ src_install() {
 	dobin "${S}/packaging/linux/run_keybase"
 	systemd_douserunit "${S}/packaging/linux/systemd/keybase.service"
 	dodir "/opt/keybase"
-	cp "${S}/packaging/linux/crypto_squirrel.txt" "${D}/opt/keybase/crypto_squirrel.txt"
+	insinto "/opt/keybase"
+	doins "${S}/packaging/linux/crypto_squirrel.txt"
 
 	if use gui; then
 		if use x86; then
@@ -78,7 +79,8 @@ src_install() {
 		elif use amd64; then
 			electron_arch=x64
 		fi
-		cp -R "${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/" "${D}/opt/keybase"
+		insinto "/opt/keybase"
+		doins -r "${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/"
 	fi
 }
 
