@@ -80,7 +80,23 @@ src_install() {
 			electron_arch=x64
 		fi
 		insinto "/opt/keybase"
-		doins -r ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*
+		doins ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*.pak
+		doins ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*.dat
+		doins ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*.bin
+		doins ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*.html
+		doins ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*.so
+		doins ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/LICENSE
+		doins ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/version
+		doins -r ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/locales
+		doins -r ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/resources
+		into "/opt/keybase"
+		dobin ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/Keybase
+
+		for size in 16 32 128 256 512 ; do
+		  icon_dest="${D}/usr/share/icons/hicolor/${size}x${size}/apps"
+		  dodir "$icon_dest"
+		  cp "${S}/media/icons/Keybase.iconset/icon_${size}x${size}.png" "$icon_dest/keybase.png"
+		done
 	fi
 }
 
