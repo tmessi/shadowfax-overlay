@@ -23,6 +23,11 @@ DEPEND="
 RDEPEND="
 	app-crypt/gnupg"
 
+QA_PRESTRIPPED="
+	/opt/keybase/Keybase                                                                                                             │
+	/opt/keybase/libnode.so                                                                                                              │
+	/opt/keybase/libffmpeg.so"
+
 S="${WORKDIR}/src/github.com/keybase/client"
 
 pkg_setup() {
@@ -89,8 +94,8 @@ src_install() {
 		doins ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/version
 		doins -r ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/locales
 		doins -r ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/resources
-		into "/opt/keybase"
-		dobin ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/Keybase
+		exeinto "/opt/keybase"
+		doexe ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/Keybase
 
 		for size in 16 32 128 256 512 ; do
 		  icon_dest="/usr/share/icons/hicolor/${size}x${size}/apps"
