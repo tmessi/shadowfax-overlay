@@ -93,9 +93,9 @@ src_install() {
 		dobin ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/Keybase
 
 		for size in 16 32 128 256 512 ; do
-		  icon_dest="${D}/usr/share/icons/hicolor/${size}x${size}/apps"
+		  icon_dest="/usr/share/icons/hicolor/${size}x${size}/apps"
 		  dodir "$icon_dest"
-		  cp "${S}/media/icons/Keybase.iconset/icon_${size}x${size}.png" "$icon_dest/keybase.png"
+		  cp "${S}/media/icons/Keybase.iconset/icon_${size}x${size}.png" "${D}/$icon_dest/keybase.png"
 		done
 	fi
 }
