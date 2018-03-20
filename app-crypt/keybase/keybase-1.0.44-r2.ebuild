@@ -80,7 +80,7 @@ src_install() {
 			electron_arch=x64
 		fi
 		insinto "/opt/keybase"
-		doins -r "${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*"
+		doins -r ${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*
 	fi
 }
 
