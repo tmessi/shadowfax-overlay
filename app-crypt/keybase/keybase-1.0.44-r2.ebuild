@@ -53,8 +53,8 @@ src_compile() {
 			electron_arch=x64
 		fi
 		cd "${S}/shared"
-		NODE_ENV=development KEYBASE_SKIP_DEV_TOOLS=1 yarn
-		NODE_ENV=production yarn run package --platform linux --arch "$electron_arch" --appVersion "${PV}"
+		NODE_ENV=development KEYBASE_SKIP_DEV_TOOLS=1 yarn || die
+		NODE_ENV=production yarn run package --platform linux --arch "$electron_arch" --appVersion "${PV}" || die
 		cd "${WORKDIR}"
 	fi
 }
@@ -80,7 +80,7 @@ src_install() {
 			electron_arch=x64
 		fi
 		insinto "/opt/keybase"
-		doins -r "${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/"
+		doins -r "${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*"
 	fi
 }
 
