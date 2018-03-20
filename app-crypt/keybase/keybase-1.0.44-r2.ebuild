@@ -78,7 +78,7 @@ src_install() {
 		elif use amd64; then
 			electron_arch=x64
 		fi
-		cp -R "${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/*" "${D}/opt/keybase/"
+		cp -R "${S}/shared/desktop/release/linux-${electron_arch}/Keybase-linux-${electron_arch}/" "${D}/opt/keybase"
 	fi
 }
 
