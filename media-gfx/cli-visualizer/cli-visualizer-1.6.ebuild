@@ -24,6 +24,7 @@ DOCS=(
 )
 
 src_install() {
+	dodir ${D}/usr/bin
 	emake PREFIX="${D}/usr/bin" install
 	einstalldocs
 }
