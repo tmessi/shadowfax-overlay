@@ -24,7 +24,7 @@ DOCS=(
 )
 
 src_install() {
-	dodir ${D}/usr/bin
-	emake PREFIX="${D}/usr/bin/" install
+	dobin ${S}/build/vis
+
 	einstalldocs
 }
