@@ -22,3 +22,8 @@ DOCS=(
 	examples/rainbow
 	examples/basic_colors
 )
+
+src_install() {
+	emake PREFIX="${D}/usr/bin" install
+	einstalldocs
+}
