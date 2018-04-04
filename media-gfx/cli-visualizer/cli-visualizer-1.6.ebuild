@@ -17,3 +17,8 @@ DEPEND="
 	sys-libs/ncurses:5
 	pulseaudio? ( media-sound/pulseaudio )"
 RDEPEND="${DEPEND}"
+DOCS=(
+	examples/config
+	examples/rainbow
+	examples/basic_colors
+)
