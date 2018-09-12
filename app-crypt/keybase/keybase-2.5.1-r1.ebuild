@@ -3,23 +3,21 @@
 
 EAPI=6
 
-inherit eutils systemd user versionator
-
-MY_PV=$(replace_version_separator 3 '-')
+inherit golang-build systemd
 
 DESCRIPTION="Client for keybase.io"
 HOMEPAGE="https://keybase.io/"
-SRC_URI="https://github.com/keybase/client/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/keybase/client/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+suid gui"
+IUSE="gui"
 
 DEPEND="
 	>=dev-lang/go-1.6:0
 	gui? ( sys-apps/yarn )
-	app-crypt/kbfs"
+	~app-crypt/kbfs-${PV}"
 RDEPEND="
 	app-crypt/gnupg"
 
@@ -28,29 +26,19 @@ QA_PRESTRIPPED="
 	/opt/keybase/libnode.so                                                                                                              │
 	/opt/keybase/libffmpeg.so"
 
-S="${WORKDIR}/src/github.com/keybase/client"
-
-pkg_setup() {
-	enewuser keybasehelper
-}
 
 src_unpack() {
 	unpack "${P}.tar.gz"
-	mkdir -p "$(dirname "${S}")" || die
-	mv "client-${MY_PV}" "${S}" || die
+	ln -vs "client-${PV}" "${P}" || die
+	mkdir -vp "${S}/src/github.com/keybase" || die
+	ln -vs "${S}" "${S}/src/github.com/keybase/client" || die
 }
 
 src_compile() {
-	GOPATH="${WORKDIR}:${S}/go/vendor" \
-		go build -v -x \
-		-tags production \
-		-o "${T}/keybase" \
-		github.com/keybase/client/go/keybase || die
-	GOPATH="${WORKDIR}" \
-		go build -v -x \
-		-tags production \
-		-o "${T}/keybase-mount-helper" \
-		github.com/keybase/client/go/mounter/keybase-mount-helper || die
+	EGO_PN="github.com/keybase/client/go/keybase" \
+		EGO_BUILD_FLAGS="-tags production -o ${T}/keybase" \
+		golang-build_src_compile
+
 	if use gui; then
 		if use x86; then
 			electron_arch=ia32
@@ -66,12 +54,6 @@ src_compile() {
 
 src_install() {
 	dobin "${T}/keybase"
-	dodir "/var/lib/keybase"
-	fowners keybasehelper:keybasehelper "/var/lib/keybase"
-	dosym "/tmp/keybase" "/var/lib/keybase/mount1"
-	dobin "${T}/keybase-mount-helper"
-	fowners keybasehelper:keybasehelper "/usr/bin/keybase-mount-helper"
-	use suid && fperms 4755 "/usr/bin/keybase-mount-helper"
 	dobin "${S}/packaging/linux/run_keybase"
 	systemd_douserunit "${S}/packaging/linux/systemd/keybase.service"
 	dodir "/opt/keybase"
@@ -106,7 +88,8 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Run the service: keybase service"
-	elog "Run the client:  keybase login"
-	elog "Restart keybase: run_keybase"
+	elog "Start/Restart keybase: run_keybase"
+	elog "Run the service:       keybase service"
+	elog "Run the client:        keybase login"
+	ewarn "Note that the user keybasehelper is obsolete and can be removed"
 }
