@@ -22,7 +22,10 @@ RDEPEND="${DEPEND}"
 
 
 pkg_setup() {
+	CONFIG_CHECK="~INPUT_LEDS"
+
 	linux-info_pkg_setup
+
 	MODULE_NAMES="system76(extra::)"
 	BUILD_TARGETS="all"
 	linux-mod_pkg_setup
