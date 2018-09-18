@@ -27,6 +27,7 @@ pkg_setup() {
 	linux-info_pkg_setup
 
 	MODULE_NAMES="system76(extra::)"
+	BUILD_PARAMS="KERNEL_DIR=${KERNEL_DIR}"
 	BUILD_TARGETS="all"
 	linux-mod_pkg_setup
 }
