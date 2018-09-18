@@ -22,6 +22,7 @@ RDEPEND="${DEPEND}"
 
 
 pkg_setup() {
+	linux-info_pkg_setup
 	MODULE_NAMES="system76(extra::)"
 	BUILD_TARGETS="all"
 	linux-mod_pkg_setup
