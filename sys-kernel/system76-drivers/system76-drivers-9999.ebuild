@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 EGIT_REPO_URI="https://github.com/pop-os/system76-dkms.git"
-EGIT_BRANCH="master_bionic"
+EGIT_BRANCH="master"
 EGIT_CHECKOUT_DIR=${S}
 
 DEPEND=""
