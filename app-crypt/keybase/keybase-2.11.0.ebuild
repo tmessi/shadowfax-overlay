@@ -52,6 +52,11 @@ src_compile() {
 	fi
 }
 
+src_test() {
+	EGO_PN="github.com/keybase/client/go/keybase" \
+		golang-build_src_test
+}
+
 src_install() {
 	dobin "${T}/keybase"
 	dobin "${S}/packaging/linux/run_keybase"
