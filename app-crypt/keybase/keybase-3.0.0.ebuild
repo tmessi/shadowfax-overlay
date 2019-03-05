@@ -17,7 +17,7 @@ IUSE="gui"
 DEPEND="
 	>=dev-lang/go-1.6:0
 	gui? ( sys-apps/yarn )
-	~app-crypt/kbfs-${PV}"
+	~app-crypt/kbfs-2.11.0"
 RDEPEND="
 	app-crypt/gnupg"
 
