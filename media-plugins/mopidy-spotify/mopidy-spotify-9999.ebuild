@@ -15,8 +15,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="test"
 
-EGIT_REPO_URI="https://github.com/BlackLight/mopidy-spotify.git"
-EGIT_BRANCH="fix/incompatible_playlists"
+EGIT_REPO_URI="https://github.com/kingosticks/mopidy-spotify.git"
+EGIT_BRANCH="fix/web_api_playlists"
 EGIT_SOURCEDIR=${S}
 
 RDEPEND=">=dev-python/pykka-1.1[${PYTHON_USEDEP}]
