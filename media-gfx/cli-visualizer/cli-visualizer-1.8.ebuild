@@ -5,7 +5,7 @@ EAPI=6
 
 DESCRIPTION="CLI based audio visualizer"
 HOMEPAGE="https://github.com/dpayne/cli-visualizer"
-SRC_URI="https://github.com/dpayne/${PN}/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/dpayne/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
