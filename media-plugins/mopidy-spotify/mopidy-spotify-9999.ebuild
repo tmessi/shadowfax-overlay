@@ -5,7 +5,7 @@ EAPI=5
 
 PYTHON_COMPAT=(python2_7)
 
-inherit vcs-snapshot distutils-r1 git-2
+inherit vcs-snapshot distutils-r1 git-r3
 
 DESCRIPTION="Mopidy extension for playing music from Spotify"
 HOMEPAGE="http://mopidy.com https://github.com/mopidy/mopidy-spotify"
