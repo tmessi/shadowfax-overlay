@@ -1,15 +1,15 @@
 <repositories version="1.0">
     <repo quality="experimental" status="unofficial">
         <name>shadowfax-overlay</name>
-        <description lang="en">shadowfax's ebuild hacks</description>
-        <homepage>https://github.com/shadowfax-chc/shadowfax-overlay</homepage>
+        <description lang="en">tmessi ebuild hacks</description>
+        <homepage>https://github.com/tmessi/shadowfax-overlay</homepage>
         <owner type="person">
             <email>tim.messier@gmail.com</email>
             <name>Tim Messier</name>
         </owner>
-        <source type="git">git://github.com/shadowfax-chc/shadowfax-overlay.git</source>
+        <source type="git">git://github.com/tmessi/shadowfax-overlay.git</source>
         <feed>
-            https://github.com/shadowfax-chc/shadowfax-overlay/commits/master.atom
+            https://github.com/tmessi/shadowfax-overlay/commits/master.atom
         </feed>
     </repo>
 </repositories>
