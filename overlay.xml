@@ -7,7 +7,7 @@
             <email>tim.messier@gmail.com</email>
             <name>Tim Messier</name>
         </owner>
-        <source type="git">git://github.com/tmessi/shadowfax-overlay.git</source>
+        <source type="git">https://github.com/tmessi/shadowfax-overlay.git</source>
         <feed>
             https://github.com/tmessi/shadowfax-overlay/commits/master.atom
         </feed>
