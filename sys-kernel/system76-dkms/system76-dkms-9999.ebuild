@@ -31,3 +31,10 @@ pkg_setup() {
 	BUILD_TARGETS="all"
 	linux-mod_pkg_setup
 }
+
+src_install() {
+	linux-mod_src_install
+
+	insinto /lib/udev/hwdb.d
+	doins lib/udev/hwdb.d/*.hwdb
+}
